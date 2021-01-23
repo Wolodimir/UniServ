@@ -5,6 +5,7 @@ import com.spring.uniserv.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -21,6 +22,10 @@ public class UserService {
     }
 
     public void addNewUser(User user) {
-        System.out.println(user);
+        Optional<User> userOptional =  userRepo.findByEmail(user.getEmail());
+        if(userOptional.isPresent()){
+            throw new IllegalStateException("email taken");
+        }
+        userRepo.save(user);
     }
 }
