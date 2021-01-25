@@ -25,6 +25,5 @@ public class MainController {
     @PostMapping("/")
     public void registerNewUser(@RequestBody User user){
         userService.addNewUser(user);
-        System.out.println("Spec for vlad");
     }
 }

@@ -22,7 +22,7 @@ public class TaskService {
         taskRepo.save(task);
     }
 
-    public void deleteTask(Task task){
-        taskRepo.deleteById(task.getId());
+    public void deleteTask(Long id){
+        taskRepo.deleteById(id);
     }
 }
